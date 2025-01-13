@@ -1,0 +1,8 @@
+node_modules
+pnpm-lock.yaml
+dist
+.turbo
+.wrangler
+wrangler.toml
+wrangler.dev.toml
+*.local

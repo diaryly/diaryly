@@ -1,0 +1,35 @@
+.diary-card {
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 0 6px 16px -8px #00000014,0 9px 28px #0000000d,0 12px 48px 16px #00000008;
+  }
+}
+
+.diary-card-sk {
+  --jd-sk-gradient-from-color: rgba(0, 0, 0, 0.06);
+  --jd-sk-gradient-to-color: rgba(0, 0, 0, 0.15);
+
+  .sk-line {
+    background: linear-gradient(90deg, var(--jd-sk-gradient-from-color) 25%, var(--jd-sk-gradient-to-color) 37%, var(--jd-sk-gradient-from-color) 63%);
+    background-size: 400% 100%;
+    animation-name: skeleton-loading;
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+  }
+}
+
+.dark .dark-diary-card {
+  --jd-sk-gradient-from-color: rgba(255, 255, 255, 0.12);
+  --jd-sk-gradient-to-color: rgba(255, 255, 255, 0.18);
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}

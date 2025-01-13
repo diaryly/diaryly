@@ -1,0 +1,63 @@
+{
+  "name": "@diaryly/server",
+  "version": "0.0.0",
+  "private": true,
+  "description": "A simple diary app",
+  "exports": {
+    ".": {
+      "types": "./dist/node.d.ts",
+      "import": "./dist/node.js"
+    },
+    "./bun": {
+      "types": "./dist/bun.d.ts",
+      "import": "./dist/bun.js"
+    },
+    "./cf": {
+      "types": "./dist/cfworker.d.ts",
+      "import": "./dist/cfworker.js"
+    },
+    "./node": {
+      "types": "./dist/node.d.ts",
+      "import": "./dist/node.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "wrangler dev --config wrangler.dev.toml",
+    "dev:node": "node dist/node.js",
+    "dev:remote": "wrangler dev src/cloudflare-worker.ts --remote",
+    "deploy": "pnpm build-wrangler && wrangler deploy --minify",
+    "build-wrangler": "pnpx tsx scripts/build-wrangler.ts",
+    "m": "drizzle-kit migrate",
+    "build": "tsup",
+    "pub": "pnpm build && pnpm publish"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.7",
+    "better-sqlite3": "^11.5.0",
+    "drizzle-orm": "^0.38.0",
+    "esday": "^0.4.1",
+    "fs-extra": "^11.2.0",
+    "hono": "^4.6.13",
+    "mysql2": "^3.11.4",
+    "pg": "^8.13.1",
+    "radash": "^12.1.0",
+    "strip-indent": "^4.0.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^3.12.0",
+    "@cloudflare/workers-types": "^4.20241112.0",
+    "@repo/typescript-config": "workspace:*",
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.10.5",
+    "@types/pg": "^8.11.10",
+    "bun-types": "^1.1.42",
+    "drizzle-kit": "^0.30.0",
+    "eslint": "^9.15.0",
+    "tsup": "^8.3.5",
+    "wrangler": "^3.88.0"
+  }
+}

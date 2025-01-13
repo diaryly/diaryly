@@ -1,0 +1,90 @@
+@use "sass:color";
+
+$color-prefix: "--gmc";
+$pink: #d63384;
+$blue: #1e88e5;
+$green: #43a047;
+$yellow: #e0be25;
+$purple: #8e24aa;
+$orange: #fb8c00;
+$indigo: #3949ab;
+$quotes: (
+  "danger": #c42e23,
+  "warning": #ff9800,
+  "success": #11b416,
+  "info": #1e7fce,
+  "secondary": #7c7c7c,
+);
+$themes: (
+  "pink": $pink,
+  "blue": $blue,
+  "green": $green,
+  "yellow": $yellow,
+  "purple": $purple,
+  "orange": $orange,
+  "indigo": $indigo,
+);
+$themes-vars: (
+  "highlight" 3%,
+  "link" 6%,
+  "disabled" -40%,
+  "table-bg" -75% 0.5,
+  // table background
+  "table-deep" -45% 0.5,
+  // table row deep background
+  "divider" 30% 0.5,
+  // divider color
+);
+
+@mixin theme-colors($value, $light: true) {
+  @if $light {
+    @each $name, $shift, $alpha in $themes-vars {
+      @if $alpha {
+        #{$color-prefix}-#{$name}: #{rgba(shift-color($value, $shift), $alpha)};
+      } @else {
+        #{$color-prefix}-#{$name}: #{shift-color($value, $shift)};
+      }
+    }
+  } @else {
+    @each $name, $shift, $alpha in $themes-vars {
+      @if $alpha {
+        #{$color-prefix}-#{$name}: #{rgba(
+            shift-color($value, -$shift),
+            $alpha
+          )};
+      } @else {
+        #{$color-prefix}-#{$name}: #{shift-color($value, -$shift)};
+      }
+    }
+  }
+}
+
+:root {
+  /* 主要颜色 默认 */
+  #{$color-prefix}-body: rgb(226 222 214);
+  #{$color-prefix}-text: #4b4b4b;
+  #{$color-prefix}-text-2: #888;
+  #{$color-prefix}-heavy: #1a1a1a;
+  #{$color-prefix}-shadow: rgb(0 0 0 / 10%);
+  #{$color-prefix}-mask: rgb(66 66 66 / 60%);
+
+  /* quotes */
+  @each $name, $color in $quotes {
+    #{$color-prefix}-#{$name}: shift-color($color, -5%);
+  }
+
+}
+
+.dark {
+  #{$color-prefix}-body: #0c0d0f;
+  #{$color-prefix}-text: #ccc;
+  #{$color-prefix}-text-2: #999;
+  #{$color-prefix}-heavy: #fff;
+  #{$color-prefix}-shadow: rgb(0 0 0 / 20%);
+  #{$color-prefix}-mask: rgb(3 3 3 / 60%);
+
+  /* quotes */
+  @each $name, $color in $quotes {
+    #{$color-prefix}-#{$name}: shift-color($color, 5%);
+  }
+}

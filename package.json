@@ -1,0 +1,29 @@
+{
+  "name": "diaryly",
+  "private": true,
+  "packageManager": "pnpm@9.15.3",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "turbo build",
+    "build:server": "pnpm -F @diaryly/server build",
+    "build:client": "pnpm -F @diaryly/client build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "clean": "rimraf -g  ./**/node_modules ./**/dist ./**/.turbo",
+    "release": "commit-and-tag-version -i CHANGELOG.md --same-file",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^3",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "commit-and-tag-version": "^12.5.0",
+    "eslint": "^9",
+    "eslint-plugin-solid": "^0.14.5",
+    "husky": "^9.1.7",
+    "turbo": "^2.3.3",
+    "typescript": "5.5.4"
+  }
+}

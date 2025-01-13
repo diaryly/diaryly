@@ -1,0 +1,42 @@
+.page-enter {
+  animation: page-enter 250ms;
+}
+
+.page-leave {
+  animation: page-leave 250ms;
+}
+
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+@keyframes page-leave {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+body {
+  font-family: 'Xiaolai SC', sans-serif;
+  font-weight:'400';
+  background: var(--jg-t-body);
+  color: var(--jg-fg1);
+}
+
+.up-banner {
+  background: linear-gradient(to bottom, var(--jg-t-body), rgba(0, 0, 0, 0));
+}
+
+.bottom-banner {
+  background: linear-gradient(to top, var(--jg-t-body), rgba(0, 0, 0, 0));
+}

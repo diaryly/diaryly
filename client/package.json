@@ -1,0 +1,33 @@
+{
+  "name": "@diaryly/client",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@chinese-fonts/xiaolai": "^2.0.1",
+    "@iconify-json/ri": "^1.2.3",
+    "@solidjs/router": "^0.15.2",
+    "axios": "^1.7.7",
+    "esday": "^0.4.0",
+    "jige-core": "^0.31.0",
+    "jige-ui": "^0.21.5",
+    "marked": "^15.0.6",
+    "radash": "^12.1.0",
+    "solid-editor-core": "^1.0.3",
+    "solid-js": "^1.9.3",
+    "solid-uses": "^0.8.0",
+    "unocss": "^65.4.0"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "sass-embedded": "^1.83.0",
+    "vite": "6.0.3",
+    "vite-plugin-solid": "^2.11.0",
+    "vite-plugin-solid-pages": "^0.1.2"
+  }
+}

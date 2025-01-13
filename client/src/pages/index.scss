@@ -1,0 +1,9 @@
+.box {
+  >:first-child {
+    margin-top: 40px;
+  }
+
+  >:last-child {
+    margin-bottom: 50px;
+  }
+}
