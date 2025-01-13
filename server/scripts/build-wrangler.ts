@@ -24,8 +24,8 @@ const wranglerConfig = stripIndent(`
 #:schema node_modules/wrangler/config-schema.json
 name = "${WORKER_NAME}"
 main = "src/cloudflare-worker.ts"
-compatibility_date = "2024-05-29"
-node_compat = true
+compatibility_flags = [ "nodejs_compat" ]
+compatibility_date = "2025-01-01"
 
 [vars]
 DB_TYPE = "${DB_TYPE}"
@@ -38,4 +38,4 @@ mode = "smart"
 
 // 写入 wrangler.toml 文件
 writeFileSync('wrangler.toml', wranglerConfig)
-console.log('wrangler.toml 文件已生成。')
+console.log('wrangler.toml generated !!!')
